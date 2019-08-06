@@ -1,0 +1,14 @@
+version: '3'
+services:
+  onetimesecret:
+    image: "local/onetimesecret:latest"
+    ports:
+      - "80:7143"
+    links:
+      - "redis:redis"
+    environment:
+      - OTS_DOMAIN=example.com
+      - OTS_HOST=onetimesecret.example.com
+      - OTS_SSL=true
+  redis:
+    image: "redis:latest"
